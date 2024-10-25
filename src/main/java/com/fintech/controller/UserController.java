@@ -28,13 +28,9 @@ public class UserController {
 
     @Operation(summary = "Create a new user", description = "Creates a new user and returns the user details.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "User created successfully",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UserResponseDto.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid input",
-                    content = @Content),
-            @ApiResponse(responseCode = "500", description = "Internal server error",
-                    content = @Content)
+            @ApiResponse(responseCode = "201", description = "User created successfully", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
     })
     @PostMapping
     public ApisResponse<UserResponseDto> createUser(@Valid @RequestBody UserRequestDto requestDto) {
@@ -43,11 +39,8 @@ public class UserController {
 
     @Operation(summary = "Retrieve users", description = "Retrieves a list of users or a specific user by ID.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Users retrieved successfully",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = UserResponseDto.class)) }),
-            @ApiResponse(responseCode = "404", description = "No users found",
-                    content = @Content)
+            @ApiResponse(responseCode = "200", description = "Users retrieved successfully", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class)) }),
+            @ApiResponse(responseCode = "404", description = "No users found", content = @Content)
     })
     @GetMapping
     public ApisResponse<List<UserResponseDto>> getUsers(@Parameter(description = "ID of the user to retrieve") @RequestParam(required = false) Long id) {

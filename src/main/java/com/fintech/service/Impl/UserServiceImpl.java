@@ -128,7 +128,7 @@ public class UserServiceImpl implements UserService {
 
             userResponseDtoList = userRepository.findAll()
                     .stream().
-                    map(mapper::toUserResponseDto)
+                    map(this::mapToDto)
                     .toList();
         }
         return userResponseDtoList;
