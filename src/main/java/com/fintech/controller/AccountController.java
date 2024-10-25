@@ -25,10 +25,8 @@ public class AccountController {
 
     @Operation(summary = "Create a new account", description = "Creates a new account and returns the account details.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Account created successfully", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = AccountResponseDto.class)) }),
-            @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content),
-            @ApiResponse(responseCode = "500", description = "Internal server error", content = @Content)
-    })
+            @ApiResponse(responseCode = "201", description = "Account created successfully", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = AccountResponseDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content)})
     @PostMapping
     public ApisResponse<AccountResponseDto> createAccount(@Valid @RequestBody AccountRequestDto accountRequestDto) {
         return ApisResponse.success(accountService.createAccount(accountRequestDto), Constants.SuccessMessage.ACCOUNT_CREATED, HttpStatus.CREATED);
@@ -36,7 +34,7 @@ public class AccountController {
 
     @Operation(summary = "Retrieve account balance", description = "Retrieves the balance for a specific account by ID.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Balance retrieved successfully", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = BalanceResponseDto.class)) }),
+            @ApiResponse(responseCode = "200", description = "Balance retrieved successfully", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = BalanceResponseDto.class))}),
             @ApiResponse(responseCode = "404", description = "Account not found", content = @Content)
     })
     @GetMapping("/{id}/balance")

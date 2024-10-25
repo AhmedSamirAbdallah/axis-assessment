@@ -23,7 +23,7 @@ public class TransactionController {
 
     @Operation(summary = "Deposit funds into an account", description = "Deposits a specified amount into the specified account.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Deposit successful", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TransactionResponseDto.class)) }),
+            @ApiResponse(responseCode = "200", description = "Deposit successful", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = TransactionResponseDto.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content),
             @ApiResponse(responseCode = "404", description = "Account not found", content = @Content)
     })
@@ -34,10 +34,10 @@ public class TransactionController {
 
     @Operation(summary = "Withdraw funds from an account", description = "Withdraws a specified amount from the specified account.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Withdrawal successful", content = { @Content(mediaType = "application/json", schema = @Schema(implementation = TransactionResponseDto.class)) }),
+            @ApiResponse(responseCode = "200", description = "Withdrawal successful", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = TransactionResponseDto.class))}),
             @ApiResponse(responseCode = "400", description = "Invalid input", content = @Content),
             @ApiResponse(responseCode = "404", description = "Account not found", content = @Content),
-            @ApiResponse(responseCode = "409", description = "Insufficient funds", content = @Content)
+            @ApiResponse(responseCode = "400", description = "Insufficient funds", content = @Content)
     })
     @PostMapping("/{id}/withdraw")
     public ApisResponse<TransactionResponseDto> withdraw(@PathVariable Long id, @Valid @RequestBody TransactionRequestDto requestDto) {
