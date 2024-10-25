@@ -12,8 +12,8 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
-  liquibase:
-    change-log: classpath:db/changelog/changelog-master.sql
-    enabled: true
+#  liquibase:
+#    change-log: classpath:db/changelog/changelog-master.sql
+#    enabled: true
 server:
   port: 8050
