@@ -1,11 +1,13 @@
 package com.fintech.common.entity;
 
+import com.fintech.common.enums.Currency;
 import com.fintech.common.enums.TransactionType;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
@@ -16,7 +18,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TransactionEntity extends BaseEntity{
+@Getter
+public class TransactionEntity extends BaseEntity {
 
     @Id
     @SequenceGenerator(name = "transaction_seq", sequenceName = "transaction_seq", initialValue = 1, allocationSize = 1)
@@ -39,12 +42,8 @@ public class TransactionEntity extends BaseEntity{
     @Column(name = "transaction_date", nullable = false)
     private LocalDateTime transactionDate;
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "reference_id", unique = true)
-    private String referenceId;
-
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = "Currency is required")
     @Column(name = "currency", nullable = false)
-    private String currency;
+    private Currency currency;
 }

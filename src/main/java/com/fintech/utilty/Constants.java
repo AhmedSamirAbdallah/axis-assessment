@@ -17,7 +17,10 @@ public class Constants {
         public static final String CURRENCY_REQUIRED = "Currency is required";
         public static final String USER_ID_REQUIRED = "User ID is required";
         public static final String ACCOUNT_NOT_FOUND = "Account not found with ID: %d";
-
+        public static final String AMOUNT_MUST_BE_POSITIVE = "Amount must be greater than zero";
+        public static final String ACCOUNT_ID_REQUIRED = "Account ID is required";
+        public static final String INSUFFICIENT_FUNDS = "Insufficient funds for withdrawal from account ID: %d";
+        public static final String CURRENCY_MISMATCH = "Currency mismatch: account currency is different from the transaction currency.";
 
     }
 
@@ -27,7 +30,7 @@ public class Constants {
         public static final String USER_RETRIEVED_SUCCESSFULLY = "User retrieved successfully";
         public static final String ACCOUNT_CREATED = "Account created successfully.";
         public static final String BALANCE_RETRIEVED = "Balance retrieved successfully.";
-
+        public static final String TRANSACTION_SUCCESSFUL = "Transaction completed successfully.";
 
 
     }
