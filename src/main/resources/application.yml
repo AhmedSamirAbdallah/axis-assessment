@@ -15,5 +15,10 @@ spring:
 #  liquibase:
 #    change-log: classpath:db/changelog/changelog-master.sql
 #    enabled: true
+springdoc:
+  api-docs:
+    path: /api-docs
 server:
   port: 8050
+  servlet:
+    context-path: /fintech
