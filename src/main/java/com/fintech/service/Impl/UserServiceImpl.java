@@ -4,7 +4,6 @@ import com.fintech.common.dto.request.UserRequestDto;
 import com.fintech.common.dto.response.UserResponseDto;
 import com.fintech.common.entity.UserEntity;
 import com.fintech.common.enums.UserAccountStatus;
-import com.fintech.mapper.MapStructMapper;
 import com.fintech.repository.UserRepository;
 import com.fintech.service.UserService;
 import com.fintech.utilty.Constants;
@@ -21,7 +20,6 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
-    private final MapStructMapper mapper;
 
     private void validateUserRequest(UserRequestDto requestDto) {
         if (requestDto.firstName() == null || requestDto.firstName().isBlank()) {

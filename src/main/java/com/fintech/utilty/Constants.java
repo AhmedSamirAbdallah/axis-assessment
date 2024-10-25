@@ -11,6 +11,13 @@ public class Constants {
         public static final String USER_NOT_FOUND = "User with ID %d not found";
         public static final String EMAIL_ALREADY_EXISTS = "An account with this email already exists";
         public static final String SSN_ALREADY_EXISTS = "An account with this SSN already exists";
+        public static final String ACCOUNT_NUMBER_REQUIRED = "Account number is required";
+        public static final String ACCOUNT_NUMBER_UNIQUE = "Account number must be unique";
+        public static final String BALANCE_POSITIVE = "Balance must be a positive number";
+        public static final String CURRENCY_REQUIRED = "Currency is required";
+        public static final String USER_ID_REQUIRED = "User ID is required";
+        public static final String ACCOUNT_NOT_FOUND = "Account not found with ID: %d";
+
 
     }
 
@@ -18,6 +25,10 @@ public class Constants {
 
         public static final String USER_CREATED_SUCCESSFULLY = "User created successfully";
         public static final String USER_RETRIEVED_SUCCESSFULLY = "User retrieved successfully";
+        public static final String ACCOUNT_CREATED = "Account created successfully.";
+        public static final String BALANCE_RETRIEVED = "Balance retrieved successfully.";
+
+
 
     }
 }
