@@ -46,11 +46,11 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException(Constants.ErrorMessage.BIRTH_DATE_FUTURE);
         }
 
-        if(userRepository.existsByEmail(requestDto.email())){
+        if (userRepository.existsByEmail(requestDto.email())) {
             throw new IllegalArgumentException(Constants.ErrorMessage.EMAIL_ALREADY_EXISTS);
         }
 
-        if(userRepository.existsBySsn(requestDto.ssn())){
+        if (userRepository.existsBySsn(requestDto.ssn())) {
             throw new IllegalArgumentException(Constants.ErrorMessage.SSN_ALREADY_EXISTS);
         }
 
@@ -115,21 +115,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserResponseDto> getUsers(Long id) {
-        List<UserResponseDto> userResponseDtoList = new ArrayList<>();
-        if (id != null) {
+    public UserResponseDto getUser(Long id) {
 
-            UserEntity user = getUserById(id);
-            userResponseDtoList.add(mapToDto(user));
-
-        } else {
-
-            userResponseDtoList = userRepository.findAll()
-                    .stream().
-                    map(this::mapToDto)
-                    .toList();
-        }
-        return userResponseDtoList;
+        UserEntity user = getUserById(id);
+        return mapToDto(user);
     }
 
 

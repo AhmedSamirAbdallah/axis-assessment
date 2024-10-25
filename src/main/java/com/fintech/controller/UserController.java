@@ -40,8 +40,8 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "Users retrieved successfully", content = {@Content(mediaType = "application/json", schema = @Schema(implementation = UserResponseDto.class))}),
             @ApiResponse(responseCode = "404", description = "No users found", content = @Content)
     })
-    @GetMapping
-    public ApisResponse<List<UserResponseDto>> getUsers(@Parameter(description = "ID of the user to retrieve") @RequestParam(required = false) Long id) {
-        return ApisResponse.success(userService.getUsers(id), Constants.SuccessMessage.USER_RETRIEVED_SUCCESSFULLY, HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ApisResponse<UserResponseDto> getUsers(@Parameter(description = "ID of the user to retrieve") @PathVariable Long id) {
+        return ApisResponse.success(userService.getUser(id), Constants.SuccessMessage.USER_RETRIEVED_SUCCESSFULLY, HttpStatus.OK);
     }
 }
